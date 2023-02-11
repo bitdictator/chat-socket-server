@@ -13,7 +13,7 @@ return [
     // we are using the default here
     'TIMEZONE' => date_default_timezone_get(),
 
-    // this is the encryption key that is used by the server the issues the auth details
+    // the necryption key used by your website when creating the encrypted auth details
     'ENCRYPTION_KEY' => '1234',
 
     // this is to be used with the OriginCheck which is not used

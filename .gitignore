@@ -1,2 +1,4 @@
 vendor
 composer.phar
+src/config/config.DEV.php
+src/config/config.PROD.php
