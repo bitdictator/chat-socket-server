@@ -13,7 +13,7 @@ A simple chat socket server for your website.
 7. When the client sends a message to the socket server, the socket server saves the message to the database of your website and sends the message to the perticipant in the same room by using his connection.
 8. Once the client side socket receives a message from this socket server, it runs a method that displays the live message in the conversation.
 
-### TODO
+## TODO
 
 * Add code examples to README.md
 * Add deployment guide to README.md
