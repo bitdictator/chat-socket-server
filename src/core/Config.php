@@ -16,9 +16,6 @@ class Config
 
             $config_file = dirname(__DIR__) . '/config/config.' . Environment::get() . '.php';
 
-            var_dump(dirname(__DIR__));
-            exit;
-
             if (!file_exists($config_file)) {
                 return false;
             }
