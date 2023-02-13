@@ -16,8 +16,8 @@ $loop = Loop::get();
 
 $context = [
     'tls' => [
-        'local_cert'  => dirname(__DIR__) . '/fullchain1.pem',
-        'local_pk' => dirname(__DIR__) . '/privkey1.pem',
+        'local_cert'  => __DIR__ . '../letsencrypt/fullchain1.pem',
+        'local_pk' => __DIR__ . '../letsencrypt/privkey1.pem',
         'verify_peer' => false
     ]
 ];
