@@ -4,9 +4,6 @@ namespace Core;
 
 class Config
 {
-    // TOOD: move this from here
-    const CHAT_SOCKET_SERVER_JWT_KEY = "kjKFelnXMO7n82XDHONx3j9";
-
     public static $config;
 
     public static function get(string $key)
