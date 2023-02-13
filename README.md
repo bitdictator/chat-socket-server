@@ -1,6 +1,6 @@
-# Chat Socket Server
+# PHP Chat Socket Server
 
-A simple chat socket server for your website.
+A simple chat socket server made with PHP for your website.
 
 ## How does it work?
 
