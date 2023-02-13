@@ -11,7 +11,7 @@ A simple chat socket server for your website.
 5. The socket server creates a new room (If it does not exist) with the chat ID that is given in the auth details and inserts the user with the given user ID and connection to the room.
 6. When the second conversation participant opens the same conversation on your website, he requests a connection with his auth details, if the details are valid then he connects to the existing room with his user ID and connection.
 7. When one of the clients sends a message to the socket server, the socket server finds the room of the authenticated connection and saves the message to the database of your website, then it sends the message to the participant in the same room by using his connection.
-8. Once the client side socket receives a message from this socket server, it runs a method which displays the live message in the conversation.
+8. Once the client side socket receives the message from this socket server, it runs a method which displays the live message in the conversation.
 
 ## TODO
 
