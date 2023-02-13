@@ -40,7 +40,7 @@ class Auth
             return false;
         }
 
-        $auth_details_decrypted = Encryption::decrypt(base64_decode($query_array['auth_details']), Config::CHAT_SOCKET_SERVER_JWT_KEY);
+        $auth_details_decrypted = Encryption::decrypt(base64_decode($query_array['auth_details']), Config::get('ENCRYPTION_KEY'));
 
         // json to object
         $auth_details = json_decode($auth_details_decrypted);
