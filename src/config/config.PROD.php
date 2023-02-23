@@ -7,7 +7,7 @@ return [
     'DB_USER' => 'prod_db_user',
     'DB_PASS' => 'prod_db_pwd',
     'DB_CHARSET' => 'utf8',
-    'SERVER_URI' => '0.0.0.0:443',
+    'SERVER_URI' => 'tls://0.0.0.0:443',
 
     // full list of timezones can be found here https://www.php.net/manual/en/timezones.php
     // we are using the default here

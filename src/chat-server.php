@@ -8,28 +8,20 @@ use React\Socket\SocketServer;
 use Core\Config;
 use Core\App;
 
-require __DIR__ . '../vendor/autoload.php';
-
-date_default_timezone_set(Config::get('TIMEZONE'));
+require dirname(__DIR__) . '/vendor/autoload.php';
 
 $loop = Loop::get();
-
-$context = [
+$wsServer = new WsServer(new App());
+$wsServer->enableKeepAlive($loop, 5);
+$app = new HttpServer($wsServer);
+$secure_websockets = new SocketServer(Config::get('SERVER_URI'), [
     'tls' => [
-        'local_cert'  => __DIR__ . '../letsencrypt/fullchain1.pem',
-        'local_pk' => __DIR__ . '../letsencrypt/privkey1.pem',
-        'verify_peer' => false
+        'local_cert' => '/etc/letsencrypt/live/chat.bimboom.ru/fullchain.pem',
+        'local_pk' => '/etc/letsencrypt/live/chat.bimboom.ru/privkey.pem',
+        'allow_self_signed' => false,
+        'verify_peer' => FALSE
     ]
-];
+], $loop);
 
-$server = new SocketServer(Config::get('SERVER_URI'), $context, $loop);
-
-$httpServer = new HttpServer(
-    new WsServer(
-        new App()
-    )
-);
-
-$ioServer = new IoServer($httpServer, $server, $loop);
-
-$ioServer->run();
+$secure_websockets_server = new IoServer($app, $secure_websockets, $loop);
+$secure_websockets_server->run();
