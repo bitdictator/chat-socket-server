@@ -12,9 +12,9 @@ require dirname(__DIR__) . '/vendor/autoload.php';
 
 $loop = Loop::get();
 $wsServer = new WsServer(new App());
-$wsServer->enableKeepAlive($loop, 5);
+$wsServer->enableKeepAlive($loop, 10);
 $app = new HttpServer($wsServer);
-$secure_websockets = new SocketServer(Config::get('SERVER_URI'), [
+$secureSocketServer = new SocketServer(Config::get('SERVER_URI'), [
     'tls' => [
         'local_cert' => '/etc/letsencrypt/live/chat.bimboom.ru/fullchain.pem',
         'local_pk' => '/etc/letsencrypt/live/chat.bimboom.ru/privkey.pem',
@@ -23,5 +23,5 @@ $secure_websockets = new SocketServer(Config::get('SERVER_URI'), [
     ]
 ], $loop);
 
-$secure_websockets_server = new IoServer($app, $secure_websockets, $loop);
-$secure_websockets_server->run();
+$wss = new IoServer($app, $secureSocketServer, $loop);
+$wss->run();
