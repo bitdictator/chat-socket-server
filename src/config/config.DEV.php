@@ -14,7 +14,7 @@ return [
     'TIMEZONE' => date_default_timezone_get(),
 
     // the necryption key used by your website when creating the encrypted auth details
-    'ENCRYPTION_KEY' => '1234',
+    'CHAT_SOCKET_SERVER_CIPHER_KEY' => "sdkj478ksfdj83erhrui",
 
     // this is to be used with the OriginCheck which is not used
     'ALLOWED_DOMAINS' => []

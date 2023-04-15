@@ -2,6 +2,7 @@
 
 namespace Core;
 
+use Core\AESCipher;
 use Ratchet\ConnectionInterface;
 
 class Auth
@@ -40,7 +41,9 @@ class Auth
             return false;
         }
 
-        $auth_details_decrypted = Encryption::decrypt(base64_decode($query_array['auth_details']), Config::get('ENCRYPTION_KEY'));
+        $cipher = new AESCipher(Config::get('CHAT_SOCKET_SERVER_CIPHER_KEY'));
+
+        $auth_details_decrypted = $cipher->decrypt(base64_decode($query_array['auth_details']));
 
         // json to object
         $auth_details = json_decode($auth_details_decrypted);
