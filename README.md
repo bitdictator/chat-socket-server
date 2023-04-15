@@ -1,6 +1,6 @@
 # Chat Socket Server
 
-A simple chat socket server for your website.
+A simple PHP chat socket server made with [Ratchet](https://github.com/ratchetphp/Ratchet), for your website.
 
 ## How does it work?
 
