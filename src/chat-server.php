@@ -16,10 +16,10 @@ $wsServer->enableKeepAlive($loop, 10);
 $app = new HttpServer($wsServer);
 $secureSocketServer = new SocketServer(Config::get('SERVER_URI'), [
     'tls' => [
-        'local_cert' => '/etc/letsencrypt/live/chat.bimboom.ru/fullchain.pem',
-        'local_pk' => '/etc/letsencrypt/live/chat.bimboom.ru/privkey.pem',
+        'local_cert' => Config::get('LOCAL_CERT_PATH'),
+        'local_pk' => Config::get('LOCAL_PK_PATH'),
         'allow_self_signed' => false,
-        'verify_peer' => FALSE
+        'verify_peer' => true
     ]
 ], $loop);
 
