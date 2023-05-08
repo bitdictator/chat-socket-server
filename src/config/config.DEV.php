@@ -17,5 +17,8 @@ return [
     'CHAT_SOCKET_SERVER_CIPHER_KEY' => "sdkj478ksfdj83erhrui",
 
     // this is to be used with the OriginCheck which is not used
-    'ALLOWED_DOMAINS' => []
+    'ALLOWED_DOMAINS' => [],
+
+    'LOCAL_CERT_PATH' => '',    // Path to fullchain.pem
+    'LOCAL_PK_PATH' => ''       // Path to privkey.pem
 ];
